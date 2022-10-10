@@ -36,7 +36,7 @@ Monitor Puente {
         if (cant==0){
             positivo = true;
         } else{
-            if ((pesoDisponible - colaPeso.tope()) < 0){
+            if ((pesoDisponible - colaPeso.tope()) >= 0){
                 cant--;
                 pop(colaPeso)
                 signal(cola);

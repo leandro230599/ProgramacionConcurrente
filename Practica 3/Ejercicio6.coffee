@@ -3,11 +3,11 @@ Existe una comisión de 50 alumnos que deben realizar tareas de a pares, las cua
 ###
 
 process alumnos [ID: 1..50]{
-    int grupo;
+    int grupo, nota;
 
     Comision.hacerFila(ID,grupo);
     # Realiza su tarea
-    Jtp.avisarYEsperarNota(ID,grupo);
+    Jtp.avisarYEsperarNota(ID,grupo,nota);
 }
 
 process jtp {
