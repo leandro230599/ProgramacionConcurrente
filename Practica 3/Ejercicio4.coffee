@@ -13,16 +13,35 @@ process vehiculos [ID:0..N-1]{
 Monitor Puente {
     int pesoDisponible = 50000;
     cond cola;
+    bool positivo = true;
+    int cant = 0;
+    cola colaPeso;
 
     procedure ingresar (peso: in int){
-        while ((pesoDisponible-peso)<0){
-            wait(cola);
+        int pesoAux = pesoDisponible - peso;
+        if (positivo && pesoAux < 0){
+            positivo = false;
         }
-        pesoDisponible = pesoDisponible-peso;
+        if (positivo) {
+            pesoDisponible = pesoDisponible - peso;
+        } else {
+            cant++;
+            push(colaPeso, peso);
+            wait (cola);
+        }
     }
 
     procedure salir (peso : in int) {
+        int pesoAux;
+        if (cant==0){
+            positivo = true;
+        } else{
+            if ((pesoDisponible - colaPeso.tope()) < 0){
+                cant--;
+                pop(colaPeso)
+                signal(cola);
+            }
+        }
         pesoDisponible = pesoDisponible + peso;
-        signal(cola);
     }
 }
