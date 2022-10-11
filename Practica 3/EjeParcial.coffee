@@ -38,8 +38,9 @@ Monitor Guardia {
         if (esperando > 0){
             esperando--;
             signal(cola);
+        } else{
+            medicosLibres++;
         }
-        medicosLibres++;
     }
 }
 
