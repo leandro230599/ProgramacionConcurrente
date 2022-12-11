@@ -1,6 +1,6 @@
-### Se debe modelar la atención en un banco por medio de un único empleado. Los
-clientes llegan y esperan a lo sumo 10 minutos a ser atendido de acuerdo al orden
-de llegada. Pasado ese tiempo se retira sin ser atendido. ###
+--  Se debe modelar la atención en un banco por medio de un único empleado. Los
+--  clientes llegan y esperan a lo sumo 10 minutos a ser atendido de acuerdo al orden
+--  de llegada. Pasado ese tiempo se retira sin ser atendido.
 
 Procedure Banco2 is
     Task empleado is
